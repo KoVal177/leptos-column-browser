@@ -1,0 +1,114 @@
+/**
+ * leptos-column-browser default theme (Catppuccin Mocha)
+ *
+ * Override any of these variables on :root or a parent element.
+ *
+ * --lcb-bg           Background of the root browser container.
+ * --lcb-column-bg    Background of each individual column.
+ * --lcb-border       Colour of the vertical column separators.
+ * --lcb-item-hover   Background of an item on mouse hover.
+ * --lcb-selected     Background of the currently selected item.
+ * --lcb-text         Primary text colour.
+ * --lcb-text-muted   Secondary / de-emphasised text colour.
+ * --lcb-accent       Icon fill colour, focus ring, and resize handle highlight.
+ */
+:root {
+    --lcb-bg:           #1e1e2e;
+    --lcb-column-bg:    #181825;
+    --lcb-border:       #313244;
+    --lcb-item-hover:   #313244;
+    --lcb-selected:     #45475a;
+    --lcb-text:         #cdd6f4;
+    --lcb-text-muted:   #6c7086;
+    --lcb-accent:       #89b4fa;
+}
+
+.lcb-root {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
+    background: var(--lcb-bg);
+    color: var(--lcb-text);
+    font-family: system-ui, monospace;
+    font-size: 13px;
+}
+
+.lcb-column {
+    width: 220px;
+    min-width: 180px;
+    flex-shrink: 0;
+    border-right: 1px solid var(--lcb-border);
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: var(--lcb-column-bg);
+    position: relative;
+}
+
+.lcb-list {
+    list-style: none;
+    padding: 0.25rem 0;
+    margin: 0;
+}
+
+.lcb-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.75rem;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 4px;
+    margin: 1px 4px;
+    transition: background 80ms;
+}
+
+.lcb-item:hover { background: var(--lcb-item-hover); }
+.lcb-item--selected { background: var(--lcb-selected); }
+.lcb-item-icon { display: flex; align-items: center; flex-shrink: 0; }
+.lcb-item-chevron { margin-left: auto; opacity: 0.5; display: flex; align-items: center; }
+.lcb-error { padding: 1rem; color: #f38ba8; }
+
+/* Keyboard focus ring — high-contrast, works on any background */
+.lcb-item:focus-visible {
+    outline: 2px solid var(--lcb-accent);
+    outline-offset: -2px;
+}
+
+/* Remove default outline on the list itself when we provide focus on items */
+.lcb-list:focus {
+    outline: none;
+}
+
+.lcb-item-label {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Screen-reader-only utility */
+.lcb-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.lcb-resize-handle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    cursor: col-resize;
+    z-index: 10;
+}
+.lcb-resize-handle:hover { background: var(--lcb-accent); opacity: 0.4; }
