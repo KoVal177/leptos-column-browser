@@ -6,21 +6,21 @@
 //! # Custom Icons
 //!
 //! Pass an [`IconRenderer`](crate::ui::icons::IconRenderer) to [`ColumnBrowser`](crate::components::column_browser::ColumnBrowser)
-//! to supply your own icons keyed on `node_kind`:
+//! to supply your own icons keyed on `node_type`:
 //!
 //! ```rust,ignore
 //! use std::sync::Arc;
 //! use leptos_column_browser::IconRenderer;
 //!
-//! let icons: IconRenderer = Arc::new(|node_kind: &str| match node_kind {
-//!     "container" => include_str!("icons/folder.svg").to_owned(),
+//! let icons: IconRenderer = Arc::new(|node_type: &str| match node_type {
+//!     "folder" => include_str!("icons/folder.svg").to_owned(),
 //!     _ => include_str!("icons/file.svg").to_owned(),
 //! });
 //! ```
 
 use std::sync::Arc;
 
-/// A callback that maps a node's `node_kind` string to an SVG string.
+/// A callback that maps a node's `node_type` string to an SVG string.
 ///
 /// The returned string is injected via `inner_html` on a `<span>` element.
 /// It must be a complete, self-contained `<svg>` element.
@@ -54,12 +54,12 @@ pub fn default_icon_renderer() -> IconRenderer {
 
 /// Build an [`IconRenderer`] that distinguishes containers from leaves.
 ///
-/// Returns `DEFAULT_CONTAINER_ICON` when `node_kind == "container"` and
+/// Returns `DEFAULT_CONTAINER_ICON` when `node_type == "folder"` and
 /// `DEFAULT_LEAF_ICON` for everything else.
 #[must_use]
 pub fn container_leaf_icon_renderer() -> IconRenderer {
-    Arc::new(|node_kind: &str| {
-        if node_kind == "container" {
+    Arc::new(|node_type: &str| {
+        if node_type == "folder" {
             DEFAULT_CONTAINER_ICON.to_owned()
         } else {
             DEFAULT_LEAF_ICON.to_owned()

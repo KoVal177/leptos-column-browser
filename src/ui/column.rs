@@ -173,13 +173,13 @@ pub fn BrowserColumn(
                         let item_id_click = item_id.clone();
                         let item_id_dbl = item_id.clone();
                         let is_leaf = item.is_leaf();
-                        let node_kind_str = item.node_kind.clone();
+                        let node_type_str = item.node_type.clone();
                         let kind_class = if is_leaf {
                             style::BROWSER_LEAF
                         } else {
                             style::BROWSER_CONTAINER
                         };
-                        let icon_svg = icon_renderer(&node_kind_str);
+                        let icon_svg = icon_renderer(&node_type_str);
 
                         let is_selected = {
                             let item_id = item_id.clone();

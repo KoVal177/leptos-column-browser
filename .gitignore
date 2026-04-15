@@ -1,3 +1,7 @@
 /target
-/Cargo.lock
+
+# Cargo.lock: this is a workspace with both a library crate and runnable examples.
+# Cargo.lock IS committed so that example builds are reproducible.
+# (Pure library-only crates would exclude it.)
+
 .llm_instructions/

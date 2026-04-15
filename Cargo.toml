@@ -8,26 +8,31 @@ resolver = "2"
 
 [package]
 name          = "leptos-column-browser"
-version       = "0.1.0"
+version       = "0.1.1"
 edition       = "2024"
 rust-version  = "1.94"
 description   = "A multi-pane column browser component for Leptos — navigate deeply nested hierarchies like macOS Finder"
 license       = "MIT OR Apache-2.0"
 repository    = "https://github.com/KoVal177/leptos-column-browser"
+homepage      = "https://github.com/KoVal177/leptos-column-browser"
 documentation = "https://docs.rs/leptos-column-browser"
 readme        = "README.md"
+authors       = ["KoVal177 <58688524+KoVal177@users.noreply.github.com>"]
 keywords      = ["leptos", "column-browser", "tree", "navigation", "wasm"]
 categories    = ["gui", "web-programming"]
 include       = [
     "src/**",
     "style/**",
+    "docs/**",
     "examples/*/Cargo.toml",
     "examples/*/index.html",
     "examples/*/src/**",
     "tests/**",
     "README.md",
-    "LICENSE*",
     "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "EXAMPLES.md",
+    "LICENSE*",
 ]
 
 [features]
@@ -37,7 +42,7 @@ ui = ["leptos", "wasm-bindgen", "web-sys"]
 [dependencies]
 leptos       = { version = "0.8", features = ["csr"], optional = true }
 serde        = { version = "1", features = ["derive"] }
-thiserror    = "1"
+thiserror    = "2"
 wasm-bindgen = { version = "0.2", optional = true }
 web-sys      = { version = "0.3", features = ["Element", "HtmlElement", "HtmlCollection", "PointerEvent", "KeyboardEvent"], optional = true }
 
