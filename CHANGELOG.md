@@ -5,6 +5,19 @@ All notable changes to `leptos-column-browser` are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] — 2026-04-15
+
+### Added
+- CI workflow (`.github/workflows/ci.yml`) — lint, test, WASM compile check, msrv gate.
+- `CONTRIBUTING.md` — development setup, test commands, PR checklist.
+- `EXAMPLES.md` — full walkthrough of `file_explorer` and `api_navigator` examples.
+- `docs/provider.md` — `TopologyProvider` implementation guide.
+- `docs/theming.md` — CSS variable reference with light and dark palettes.
+- `rustfmt.toml` — consistent formatting config (edition 2024, max_width 100).
+
+### Fixed
+- README badges updated to shields.io format with CI status and MSRV badge.
+
 ## [0.1.0] — 2026-04-07
 
 ### Added
